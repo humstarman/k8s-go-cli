@@ -13,5 +13,6 @@ RUN go get -v golang.org/x/oauth2/google
 RUN apt-get update
 RUN apt-get install -y git-core openssh build-essential
 RUN mkdir -p /go/src/k8s.io
+COPY --from=build /workspace/client /go/src/k8s.io
 WORKDIR /workspace
 CMD ["tail","-f","/dev/null"]
